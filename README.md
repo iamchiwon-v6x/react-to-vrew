@@ -61,3 +61,11 @@ export default defineConfig({
 });
 ```
 
+## 3. Library migration
+
+### ✅ crypto-js
+
+```bash
+$ yarn add crypto-js
+$ yarn add -D @types/crypto-js
+```

@@ -19,3 +19,45 @@ v16.20.2
     "typescript": "4.3.5"
 },
 ```
+
+## 2. Convert to Vite project
+
+> `NOTE` _vite@4 runs under node@16_
+```bash
+$ yarn add vite@4.5.2
+$ yarn add @vitejs/plugin-react
+```
+```json
+"scripts": {
+    "start": "vite",
+    "build": "tsc && vite build"
+},
+```
+```html
+<div id="root"></div>
+<script type="module" src="/src/index.tsx"></script>
+```
+```bash
+$ mv public/index.html .
+```
+```bash
+$ touch vite.config.ts
+```
+
+### Use existing env vars
+
+```bash
+$ yarn add vite-plugin-env-compatible
+```
+```ts
+import envCompatible from 'vite-plugin-env-compatible';
+
+export default defineConfig({
+  plugins: [..., envCompatible()],
+  define: {
+    'process.env': process.env,
+  },
+  ...
+});
+```
+
